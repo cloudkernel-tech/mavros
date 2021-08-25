@@ -747,6 +747,8 @@ private:
 		state_msg->vtol_state = state.vtol_state;
 		state_msg->landed_state = state.landed_state;
 
+        state_msg->flyingrover_state = state.flyingrover_state;
+
 		extended_state_pub.publish(state_msg);
 	}
 
