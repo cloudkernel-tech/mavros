@@ -138,13 +138,13 @@ mission:
 #    Check http://wiki.ros.org/mavros/Enumerations
 ##
 distance_sensor:
-  hrlv_ez4_pub:
+  tfmini_pub:
     id: 0
-    frame_id: "hrlv_ez4_sonar"
+    frame_id: "tfmin_laser"
     orientation: PITCH_270 # RPY:{0.0, 270.0, 0.0} - downward-facing
     field_of_view: 0.0  # XXX TODO
     send_tf: true
-    sensor_position: {x:  0.0, y:  0.0, z:  -0.1}
+    sensor_position: {x:  0.0, y:  0.0, z:  0.0}
   lidarlite_pub:
     id: 1
     frame_id: "lidarlite_laser"
