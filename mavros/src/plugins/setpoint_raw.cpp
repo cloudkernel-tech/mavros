@@ -161,12 +161,12 @@ private:
 		tf::vectorMsgToEigen(req->velocity, velocity);
 		tf::vectorMsgToEigen(req->acceleration_or_force, af);
 
-		// Transform frame ENU->NED
+        // Transform frame FLU --> FRD
 		if (req->coordinate_frame == mavros_msgs::PositionTarget::FRAME_BODY_NED || req->coordinate_frame == mavros_msgs::PositionTarget::FRAME_BODY_OFFSET_NED) {
 			position = ftf::transform_frame_baselink_aircraft(position);
 			velocity = ftf::transform_frame_baselink_aircraft(velocity);
 			af = ftf::transform_frame_baselink_aircraft(af);
-		} else {
+        } else { //transform ENU -> NED
 			position = ftf::transform_frame_enu_ned(position);
 			velocity = ftf::transform_frame_enu_ned(velocity);
 			af = ftf::transform_frame_enu_ned(af);

@@ -25,10 +25,12 @@ uint16 FORCE = 512	# Force in af vector flag
 uint16 IGNORE_YAW = 1024
 uint16 IGNORE_YAW_RATE = 2048
 
-uint16 IS_VTOL_CUSTOMIZED_1_SP = 32768 # Customized position type 1 for fixed-wing guidance behavior, 1<<15 in hex
+uint16 IS_VTOL_CUSTOMIZED_1_SP = 32768 # Customized position type 1 for fixed-wing guidance behavior, position tracking
+uint16 IS_VTOL_CUSTOMIZED_2_SP = 49152 # customized position type 2 for fixed-wing guidance behavior, velocity tracking
 
 geometry_msgs/Point position
 geometry_msgs/Vector3 velocity
 geometry_msgs/Vector3 acceleration_or_force
 float32 yaw
 float32 yaw_rate
+float32 banking_angle
