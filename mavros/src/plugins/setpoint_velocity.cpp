@@ -108,7 +108,7 @@ private:
 					Eigen::Vector3d::Zero(),
 					vel,
 					Eigen::Vector3d::Zero(),
-					0.0, yr.z());
+                    0.0, yr.z(), 0.0);
 	}
 
 	/* -*- callbacks -*- */

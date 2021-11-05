@@ -40,7 +40,7 @@ public:
 			Eigen::Vector3d p,
 			Eigen::Vector3d v,
 			Eigen::Vector3d af,
-			float yaw, float yaw_rate)
+            float yaw, float yaw_rate, float banking_angle)
 	{
 		mavros::UAS *m_uas_ = static_cast<D *>(this)->m_uas;
 		mavlink::common::msg::SET_POSITION_TARGET_LOCAL_NED sp;
@@ -59,6 +59,7 @@ public:
 		sp.type_mask = type_mask;
 		sp.yaw = yaw;
 		sp.yaw_rate = yaw_rate;
+        sp.banking_angle = banking_angle;
 		sp.x = p.x();
 		sp.y = p.y();
 		sp.z = p.z();

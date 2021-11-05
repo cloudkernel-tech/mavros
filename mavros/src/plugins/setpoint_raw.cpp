@@ -155,7 +155,7 @@ private:
 	void local_cb(const mavros_msgs::PositionTarget::ConstPtr &req)
 	{
 		Eigen::Vector3d position, velocity, af;
-		float yaw, yaw_rate;
+        float yaw, yaw_rate, banking_angle;
 
 		tf::pointMsgToEigen(req->position, position);
 		tf::vectorMsgToEigen(req->velocity, velocity);
@@ -180,6 +180,8 @@ private:
 		auto ang_vel_ned = ftf::transform_frame_ned_enu(ang_vel_enu);
 		yaw_rate = ang_vel_ned.z();
 
+        banking_angle = req->banking_angle;
+
 		set_position_target_local_ned(
 					req->header.stamp.toNSec() / 1000000,
 					req->coordinate_frame,
@@ -187,7 +189,7 @@ private:
 					position,
 					velocity,
 					af,
-					yaw, yaw_rate);
+                    yaw, yaw_rate, banking_angle);
 	}
 
 	void global_cb(const mavros_msgs::GlobalPositionTarget::ConstPtr &req)

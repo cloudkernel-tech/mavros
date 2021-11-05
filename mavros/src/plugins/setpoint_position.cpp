@@ -159,7 +159,7 @@ private:
 			p,
 			Eigen::Vector3d::Zero(),
 			Eigen::Vector3d::Zero(),
-			ftf::quaternion_get_yaw(q), 0.0);
+            ftf::quaternion_get_yaw(q), 0.0, 0.0);
 	}
 
 	/* -*- callbacks -*- */

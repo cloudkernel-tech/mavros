@@ -191,7 +191,7 @@ private:
 					velocity,
 					af,
 					ftf::quaternion_get_yaw(attitude),
-					yaw_rate);
+                    yaw_rate, 0.0f);
 	
 		next_setpoint_target = setpoint_target + 1;
 		if (next_setpoint_target != trajectory_target_msg->points.cend()) {

@@ -86,7 +86,7 @@ private:
 					Eigen::Vector3d::Zero(),
 					Eigen::Vector3d::Zero(),
 					accel,
-					0.0, 0.0);
+                    0.0, 0.0, 0.0);
 	}
 
 	/* -*- callbacks -*- */
