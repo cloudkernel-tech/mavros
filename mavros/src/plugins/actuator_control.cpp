@@ -75,6 +75,7 @@ private:
 
 		act.time_usec = req->header.stamp.toNSec() / 1000;
 		act.group_mlx = req->group_mix;
+        act.flag_rover_mode = req->flag_rover_mode;
 		act.target_system = m_uas->get_tgt_system();
 		act.target_component = m_uas->get_tgt_component();
 		std::copy(req->controls.begin(), req->controls.end(), act.controls.begin());	// std::array = boost::array

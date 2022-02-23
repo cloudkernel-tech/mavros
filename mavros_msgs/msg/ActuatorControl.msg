@@ -14,3 +14,4 @@ uint8 PX4_MIX_MANUAL_PASSTHROUGH = 3
 std_msgs/Header header
 uint8 group_mix
 float32[8] controls
+uint8 flag_rover_mode
