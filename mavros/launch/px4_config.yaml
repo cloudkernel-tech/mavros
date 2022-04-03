@@ -91,7 +91,7 @@ setpoint_accel:
 # setpoint_attitude
 setpoint_attitude:
   reverse_thrust: false     # allow reversed thrust
-  use_quaternion: false     # enable PoseStamped topic subscriber
+  use_quaternion: true     # enable PoseStamped topic subscriber
   tf:
     listen: false           # enable tf listener (disable topic subscribers)
     frame_id: "map"
