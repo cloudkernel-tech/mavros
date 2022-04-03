@@ -180,9 +180,12 @@ private:
 		auto ang_vel_ned = ftf::transform_frame_ned_enu(ang_vel_enu);
 		yaw_rate = ang_vel_ned.z();
 
+        //always use NED frame for low level control
+        uint8_t coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_NED;
+
 		set_position_target_local_ned(
 					req->header.stamp.toNSec() / 1000000,
-					req->coordinate_frame,
+                    coordinate_frame,
 					req->type_mask,
 					position,
 					velocity,
