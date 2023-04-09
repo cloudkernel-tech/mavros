@@ -7,8 +7,12 @@
         <arg name="vehicle_type" default="uav" />
         <arg name="tgt_system" default="1" />
 
+        <!--dasa indoor wifi network-->
+        <arg name="gcs_ip"   default="master_ip" />
+        <arg name="gcs_local_port"  default="16000" />
+        <arg name="gcs_remote_port" value="$(eval 16000 + arg('tgt_system'))"/>
+
 	<arg name="fcu_url" default="/dev/ttyACM0:57600" />
-	<arg name="gcs_url" default="" />
         <arg name="tgt_component" default="1" />
 
 	<arg name="log_output" default="screen" />
@@ -22,7 +26,8 @@
                     <arg name="config_yaml" value="$(find mavros)/launch/px4_config.yaml" />
 
                     <arg name="fcu_url" value="$(arg fcu_url)" />
-                    <arg name="gcs_url" value="$(arg gcs_url)" />
+                    <arg name="gcs_url" value="udp://ubuntu$(arg tgt_system):$(arg gcs_local_port)@$(arg gcs_ip):$(arg gcs_remote_port)"/>
+
                     <arg name="tgt_system" value="$(arg tgt_system)" />
                     <arg name="tgt_component" value="$(arg tgt_component)" />
                     <arg name="log_output" value="$(arg log_output)" />
