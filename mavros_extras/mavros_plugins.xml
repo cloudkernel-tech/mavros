@@ -2,6 +2,9 @@
 	<class name="adsb" type="mavros::extra_plugins::ADSBPlugin" base_class_type="mavros::plugin::PluginBase">
 		<description>Publish/subscribe to the location and information of an ADS-B vehicle.</description>
 	</class>
+	<class name="avoidance_status" type="mavros::extra_plugins::AvoidanceStatusPlugin" base_class_type="mavros::plugin::PluginBase">
+		<description>Send avoidance status to pursuit AGV autopilot</description>
+	</class>
 	<class name="cam_imu_sync" type="mavros::extra_plugins::CamIMUSyncPlugin" base_class_type="mavros::plugin::PluginBase">
 		<description>Publish camera trigger data for synchronisation of IMU and camera frames.</description>
 	</class>

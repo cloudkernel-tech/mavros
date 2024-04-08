@@ -9,6 +9,10 @@ ADSB
 
 Publish/subscribe to the location and information of an ADS-B vehicle.
 
+Avoidance\_Status
+------------------
+
+Send avoidance status to pursuit AGV autopilot.
 
 cam\_imu\_sync
 --------------

@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   mavros
   mavros_msgs
   roscpp
+  pursuit_msgs
   sensor_msgs
   std_msgs
   tf
@@ -51,7 +52,7 @@ include(MavrosMavlink)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES
-  CATKIN_DEPENDS geometry_msgs mavros mavros_msgs roscpp sensor_msgs std_msgs visualization_msgs
+  CATKIN_DEPENDS geometry_msgs mavros mavros_msgs roscpp sensor_msgs std_msgs visualization_msgs pursuit_msgs
   DEPENDS Boost
 )
 
@@ -66,6 +67,7 @@ include_directories(
 
 add_library(mavros_extras
   src/plugins/adsb.cpp
+  src/plugins/avoidance_status.cpp
   src/plugins/cam_imu_sync.cpp
   src/plugins/companion_process_status.cpp
   src/plugins/onboard_computer_status.cpp
