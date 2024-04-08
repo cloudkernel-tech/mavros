@@ -86,6 +86,7 @@ add_library(mavros_extras
   src/plugins/px4flow.cpp
   src/plugins/rangefinder.cpp
   src/plugins/trajectory.cpp
+  src/plugins/vcu_command_velocity.cpp
   src/plugins/vibration.cpp
   src/plugins/vision_pose_estimate.cpp
   src/plugins/vision_speed_estimate.cpp
