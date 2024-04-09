@@ -61,13 +61,13 @@ private:
 	{
 		auto cmd_vel_output_msg = boost::make_shared<geometry_msgs::Twist>();
 
-        //convert cmd vel in NED to ENU frame 
-        cmd_vel_output_msg->linear.x = cmd_vel_msg.linear_vel[1];
-        cmd_vel_output_msg->linear.y = cmd_vel_msg.linear_vel[0];
+        //convert cmd vel from FRD to FLU (body frames)
+        cmd_vel_output_msg->linear.x = cmd_vel_msg.linear_vel[0];
+        cmd_vel_output_msg->linear.y = -cmd_vel_msg.linear_vel[1];
         cmd_vel_output_msg->linear.z = -cmd_vel_msg.linear_vel[2];
 
-        cmd_vel_output_msg->angular.x = cmd_vel_msg.angular_vel[1];
-        cmd_vel_output_msg->angular.y = cmd_vel_msg.angular_vel[0];
+        cmd_vel_output_msg->angular.x = cmd_vel_msg.angular_vel[0];
+        cmd_vel_output_msg->angular.y = -cmd_vel_msg.angular_vel[1];
         cmd_vel_output_msg->angular.z = -cmd_vel_msg.angular_vel[2];
 
         vcu_cmd_vel_pub.publish(cmd_vel_output_msg);
@@ -79,13 +79,13 @@ private:
 	{
 		mavlink::common::msg::VCU_COMMAND_VELOCITY msg{};
 
-        //convert data in ENU to NED for autopilot convention
-        msg.linear_vel[0] = nav_cmd_vel->linear.y; 
-        msg.linear_vel[1] = nav_cmd_vel->linear.x; 
+        //convert data from FLU to FRD (body frames) for autopilot convention
+        msg.linear_vel[0] = nav_cmd_vel->linear.x; 
+        msg.linear_vel[1] = -nav_cmd_vel->linear.y; 
         msg.linear_vel[2] = -nav_cmd_vel->linear.z;
 
-        msg.angular_vel[0] = nav_cmd_vel->angular.y;
-        msg.angular_vel[1] = nav_cmd_vel->angular.x; 
+        msg.angular_vel[0] = nav_cmd_vel->angular.x;
+        msg.angular_vel[1] = -nav_cmd_vel->angular.y; 
         msg.angular_vel[2] = -nav_cmd_vel->angular.z;
 
 		// send ODOMETRY msg
