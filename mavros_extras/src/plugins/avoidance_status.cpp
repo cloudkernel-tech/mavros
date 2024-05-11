@@ -66,6 +66,7 @@ private:
         msg.flag_obstacle_in_front = msg_input->flag_obstacle_in_front;
         msg.flag_obstacle_in_rear = msg_input->flag_obstacle_in_rear;
         msg.flag_obstacle_nearby = msg_input->flag_obstacle_nearby;
+		msg.flag_nav_task_active = msg_input->flag_nav_task_active;
         msg.flag_nav_local_plan_valid = msg_input->flag_nav_local_plan_valid;
         msg.flag_laser_scan_data_valid = msg_input->flag_laser_scan_data_valid;
 
