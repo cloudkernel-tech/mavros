@@ -99,6 +99,11 @@ wheel\_odometry
 Compute and publish wheel odometry coming from FCU sensors.
 
 
+vcu\_base\_status
+---------------------
+Receive vcu base status from the pursuit autopilot
+
+
 vibration
 ---------
 
