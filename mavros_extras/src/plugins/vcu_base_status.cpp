@@ -59,7 +59,7 @@ private:
         //Convert FRD to FLU convention here
 		auto output_msg = boost::make_shared<pursuit_msgs::VcuBaseStatus>();
 
-        output_msg->vcu_base_type = vcu_base_status_msg.vcu_base_status;
+        output_msg->vcu_base_type = vcu_base_status_msg.vcu_base_type;
         output_msg->gear_position = vcu_base_status_msg.gear_position;
         output_msg->speed = vcu_base_status_msg.speed;
         output_msg->steering_angle_valid = vcu_base_status_msg.steering_angle_valid;
