@@ -59,6 +59,8 @@ private:
         //Convert FRD to FLU convention here
 		auto output_msg = boost::make_shared<pursuit_msgs::VcuBmsStatus>();
 
+		output_msg->header.stamp = ros::Time::now();
+
         output_msg->voltage = vcu_bms_status_msg.voltage;
         output_msg->current = vcu_bms_status_msg.current;
         output_msg->remained_capacity = vcu_bms_status_msg.remained_capacity;

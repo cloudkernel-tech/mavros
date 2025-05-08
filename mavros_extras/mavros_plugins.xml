@@ -72,13 +72,13 @@
 		<description>Send vision speed estimate to FCU.</description>
 	</class>
 	<class name="vcu_base_status" type="mavros::extra_plugins::VcuBaseStatusPlugin" base_class_type="mavros::plugin::PluginBase">
-		<description>Recieve vcu base status from the pursuit autopilot</description>
+		<description>Receive vcu base status from the pursuit autopilot</description>
 	</class>
 	<class name="vcu_bms_status" type="mavros::extra_plugins::VcuBmsStatusPlugin" base_class_type="mavros::plugin::PluginBase">
-		<description>Recieve vcu bms status from the pursuit autopilot</description>
+		<description>Receive vcu bms status from the pursuit autopilot</description>
 	</class>
 	<class name="vcu_command_velocity" type="mavros::extra_plugins::VcuCommandVelocityPlugin" base_class_type="mavros::plugin::PluginBase">
-		<description>Recieve vcu command velocity from pursuit AGV and send nav cmd to base reversely</description>
+		<description>Receive vcu command velocity from pursuit AGV and send nav cmd to base reversely</description>
 	</class>
 	<class name="mount_control" type="mavros::extra_plugins::MountControlPlugin" base_class_type="mavros::plugin::PluginBase">
 		<description>Send Mission command to control a camera or a antenna mount.</description>

@@ -56,8 +56,9 @@ private:
 
 	void handle_vcu_base_status_from_autopilot(const mavlink::mavlink_message_t *msg, mavlink::common::msg::VCU_BASE_STATUS &vcu_base_status_msg)
 	{
-        //Convert FRD to FLU convention here
 		auto output_msg = boost::make_shared<pursuit_msgs::VcuBaseStatus>();
+
+        output_msg->header.stamp = ros::Time::now();
 
         output_msg->vcu_base_type = vcu_base_status_msg.vcu_base_type;
         output_msg->gear_position = vcu_base_status_msg.gear_position;
