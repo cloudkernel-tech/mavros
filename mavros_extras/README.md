@@ -103,6 +103,10 @@ vcu\_base\_status
 ---------------------
 Receive vcu base status from the pursuit autopilot
 
+vcu\_bms\_status
+---------------------
+Receive vcu bms status from the pursuit autopilot
+
 
 vibration
 ---------
