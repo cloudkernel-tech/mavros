@@ -87,6 +87,7 @@ add_library(mavros_extras
   src/plugins/rangefinder.cpp
   src/plugins/trajectory.cpp
   src/plugins/vcu_base_status.cpp
+  src/plugins/vcu_bms_status.cpp
   src/plugins/vcu_command_velocity.cpp
   src/plugins/vibration.cpp
   src/plugins/vision_pose_estimate.cpp
