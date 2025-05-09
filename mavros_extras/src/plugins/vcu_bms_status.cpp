@@ -64,6 +64,9 @@ private:
         output_msg->voltage = vcu_bms_status_msg.voltage;
         output_msg->current = vcu_bms_status_msg.current;
         output_msg->remained_capacity = vcu_bms_status_msg.remained_capacity;
+		output_msg->remained_percentage = vcu_bms_status_msg.remained_percentage;
+        output_msg->max_temperature = vcu_bms_status_msg.max_temperature;
+        output_msg->min_temperature = vcu_bms_status_msg.min_temperature;
 
         vcu_bms_status_pub.publish(output_msg);
     }
