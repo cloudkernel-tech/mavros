@@ -89,6 +89,7 @@ add_library(mavros_extras
   src/plugins/vcu_base_status.cpp
   src/plugins/vcu_bms_status.cpp
   src/plugins/vcu_command_velocity.cpp
+  src/plugins/vcu_direct_can_ctrl.cpp
   src/plugins/vibration.cpp
   src/plugins/vision_pose_estimate.cpp
   src/plugins/vision_speed_estimate.cpp
