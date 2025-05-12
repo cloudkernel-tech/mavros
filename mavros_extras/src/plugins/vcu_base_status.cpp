@@ -71,6 +71,11 @@ private:
         output_msg->vel[1] = -vcu_base_status_msg.vel[1];
         output_msg->vel[2] = -vcu_base_status_msg.vel[2];
 
+        output_msg->heading_rate_valid = vcu_base_status_msg.heading_rate_valid;
+        output_msg->heading_rate = -vcu_base_status_msg.heading_rate;
+
+        output_msg->operating_mode = vcu_base_status_msg.operating_mode;
+
         vcu_base_status_pub.publish(output_msg);
     }
 
