@@ -42,7 +42,11 @@ public:
 		vcu_cmd_vel_pub = vcu_cmd_vel_nh.advertise<geometry_msgs::Twist>("output", 10);
 
 		// subscribers
+		//cmd from navigation module (Internal use)
 		nav_cmd_vel_sub = vcu_cmd_vel_nh.subscribe("from_nav", 1, &VcuCommandVelocityPlugin::nav_cmd_vel_cb, this);
+
+		//cmd from offboard twist control (External use)
+		offboard_cmd_vel_sub = vcu_cmd_vel_nh.subscribe("ctrl", 1, &VcuCommandVelocityPlugin::offboard_cmd_vel_cb, this);
 	}
 
 	Subscriptions get_subscriptions()
@@ -56,6 +60,7 @@ private:
 	ros::NodeHandle vcu_cmd_vel_nh;			//!< node handler
 	ros::Publisher vcu_cmd_vel_pub;			
 	ros::Subscriber nav_cmd_vel_sub;	
+	ros::Subscriber offboard_cmd_vel_sub;	
 
 	void handle_cmd_vel_from_autopilot(const mavlink::mavlink_message_t *msg, mavlink::common::msg::VCU_COMMAND_VELOCITY &cmd_vel_msg)
 	{
@@ -87,6 +92,27 @@ private:
         msg.angular_vel[0] = nav_cmd_vel->angular.x;
         msg.angular_vel[1] = -nav_cmd_vel->angular.y; 
         msg.angular_vel[2] = -nav_cmd_vel->angular.z;
+
+		msg.flag_nav_src = true; //mark nav cmd source 
+
+		// send ODOMETRY msg
+		UAS_FCU(m_uas)->send_message_ignore_drop(msg);
+	}
+
+	void offboard_cmd_vel_cb(const geometry_msgs::Twist::ConstPtr &nav_cmd_vel)
+	{
+		mavlink::common::msg::VCU_COMMAND_VELOCITY msg{};
+
+        //convert data from FLU to FRD (body frames) for autopilot convention
+        msg.linear_vel[0] = nav_cmd_vel->linear.x; 
+        msg.linear_vel[1] = -nav_cmd_vel->linear.y; 
+        msg.linear_vel[2] = -nav_cmd_vel->linear.z;
+
+        msg.angular_vel[0] = nav_cmd_vel->angular.x;
+        msg.angular_vel[1] = -nav_cmd_vel->angular.y; 
+        msg.angular_vel[2] = -nav_cmd_vel->angular.z;
+
+		msg.flag_nav_src = false; //mark offboard twist cmd source 
 
 		// send ODOMETRY msg
 		UAS_FCU(m_uas)->send_message_ignore_drop(msg);
