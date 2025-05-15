@@ -22,9 +22,9 @@ namespace mavros {
 namespace extra_plugins {
 
 /**
- * @brief vcu bms status plugin
+ * @brief vcu direct can control plugin
  *
- * Receive vcu bms status from the autopilot
+ * Send direct CAN control command to pursuit autopilot that will be forwarded to the VCU base
  *
  *
  */
@@ -32,7 +32,7 @@ class VcuDirectCanCtrlPlugin : public plugin::PluginBase {
 public:
 
 	VcuDirectCanCtrlPlugin() : PluginBase(),
-		vcu_direct_can_ctrl_nh("~vcu_bms_status")
+		vcu_direct_can_ctrl_nh("~vcu_direct_can_ctrl")
 	{ }
 
 	void initialize(UAS &uas_)

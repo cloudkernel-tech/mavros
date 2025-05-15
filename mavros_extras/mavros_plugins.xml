@@ -80,6 +80,9 @@
 	<class name="vcu_command_velocity" type="mavros::extra_plugins::VcuCommandVelocityPlugin" base_class_type="mavros::plugin::PluginBase">
 		<description>Receive vcu command velocity from pursuit AGV and send nav cmd to base reversely</description>
 	</class>
+	<class name="vcu_direct_can_ctrl" type="mavros::extra_plugins::VcuDirectCanCtrlPlugin" base_class_type="mavros::plugin::PluginBase">
+		<description>Send direct CAN control command to pursuit autopilot that will be forwarded to the VCU base</description>
+	</class>
 	<class name="mount_control" type="mavros::extra_plugins::MountControlPlugin" base_class_type="mavros::plugin::PluginBase">
 		<description>Send Mission command to control a camera or a antenna mount.</description>
 	</class>
