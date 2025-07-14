@@ -52,7 +52,7 @@ include(MavrosMavlink)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES
-  CATKIN_DEPENDS geometry_msgs mavros mavros_msgs roscpp sensor_msgs std_msgs visualization_msgs pursuit_msgs
+  CATKIN_DEPENDS geometry_msgs mavros mavros_msgs nmea_msgs roscpp sensor_msgs std_msgs visualization_msgs pursuit_msgs
   DEPENDS Boost
 )
 
