@@ -107,7 +107,7 @@ private:
 		onboard_gps.gps_id = 0;
 		onboard_gps.ignore_flags = 0;
 
-		//QF rtk status input: 0初始化， 1单点定位， 2码差分， 3无效PPS， 4固定解， 5浮点解， 6正在估算
+		//QF rtk status input: 0初始化， 1单点定位， 2码差分， 3无效PPS， 4固定解(cm accuracy)， 5浮点解(dm accuracy)， 6正在估算
 		//GPS_INPUT msg definition: 0-1: no fix, 2: 2D fix, 3: 3D fix. 4: 3D with DGPS. 5: 3D fix with RTK. 6: 3D float with RTK
 		if (msg->status.status == 0)
 			onboard_gps.fix_type = 0;
@@ -127,7 +127,8 @@ private:
 
 		//hdop, vdop
 		if (_flag_rtk_gpgga_valid){
-			onboard_gps.hdop = _last_rtk_gpgga_data.hdop;
+			//onboard_gps.hdop = _last_rtk_gpgga_data.hdop; //gpgga data invalid
+			onboard_gps.hdop = 1.0;
 			onboard_gps.vdop = 1.0; //todo, NMEA GPGSA msg
 		} else {
 			onboard_gps.hdop = onboard_gps.vdop = NAN;
@@ -144,10 +145,10 @@ private:
 		}
 
 		//satellite
-		if (_flag_rtk_gpgga_valid)
-			onboard_gps.satellites_visible = _last_rtk_gpgga_data.num_sats;
-		else
-			onboard_gps.satellites_visible = 0;
+		// if (_flag_rtk_gpgga_valid){
+		// 	onboard_gps.satellites_visible = _last_rtk_gpgga_data.num_sats; //gpgga data invalid 
+		// } else
+		onboard_gps.satellites_visible = 0;
 		
 		//heading unit: cdeg (Centesimal angle measurement, 0.01deg)
 		if (_flag_rtk_quaternion_valid){
