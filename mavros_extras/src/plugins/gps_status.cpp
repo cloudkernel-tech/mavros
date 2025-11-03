@@ -84,6 +84,7 @@ private:
 		ros_msg->hdg_acc           = mav_msg.hdg_acc;
 		ros_msg->dgps_numch        = UINT8_MAX;	// information not available in GPS_RAW_INT mavlink message
 		ros_msg->dgps_age          = UINT32_MAX;// information not available in GPS_RAW_INT mavlink message
+        ros_msg->yaw               = mav_msg.yaw;
 
 		gps1_raw_pub.publish(ros_msg);
 	}
